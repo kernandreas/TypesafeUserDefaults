@@ -4,4 +4,5 @@ osx_image: xcode9.3beta
 
 script:
   - swift --version
+  - swift package tools-version --set 4.0 #workaround for failing build because travis thinks 4.0 is installed
   - swift test
