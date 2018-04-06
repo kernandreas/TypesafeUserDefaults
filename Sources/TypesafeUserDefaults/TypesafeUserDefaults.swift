@@ -24,7 +24,7 @@ extension URL: DefaultsArchivable {}
 public struct DefaultsKey<T> where T: DefaultsArchivable {
     let name: String
 
-    init(_ name: String) {
+    public init(_ name: String) {
         self.name = name
     }
 }
@@ -33,7 +33,7 @@ public struct DefaultsFallbackKey<T> where T: DefaultsArchivable {
     let name: String
     let fallbackValue: T
 
-    init(_ name: String, _ fallbackValue: T) {
+    public init(_ name: String, _ fallbackValue: T) {
         self.name = name
         self.fallbackValue = fallbackValue
     }
