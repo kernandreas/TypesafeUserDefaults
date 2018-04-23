@@ -63,5 +63,5 @@ let userKey = DefaultsKey<User>("user")
 
 Use the key:
 ``` Swift
-let name = UserDefaults.standard[userKey].name
+let name = UserDefaults.standard[userKey]?.name
 ```
