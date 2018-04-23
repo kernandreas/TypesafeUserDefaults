@@ -1,4 +1,4 @@
-# TypesafeUserDefaults
+# Typesafe UserDefaults
 
 [![Build Status](https://travis-ci.org/kernandreas/TypesafeUserDefaults.svg?branch=master)](https://travis-ci.org/kernandreas/TypesafeUserDefaults)
 
@@ -44,4 +44,24 @@ UserDefaults.standard[UserKeys.name] = Date()
 
 // The return type does not match the type of the value
 let date: Date = UserDefaults.standard[UserKeys.name]
+```
+
+### Store Codable Types
+
+Conform to `CustomDefaultsArchivable`:
+``` Swift
+struct User: CustomDefaultsArchivable {
+    let name: String
+    let date: Date
+}
+```
+
+Define the key:
+``` Swift
+let userKey = DefaultsKey<User>("user")
+```
+
+Use the key:
+``` Swift
+let name = UserDefaults.standard[userKey].name
 ```
