@@ -48,6 +48,16 @@ let date: Date = UserDefaults.standard[UserKeys.name]
 
 ### Provide Default Values
 
+Providing default values is simple as you define it in the same place with the key. No more need for using `register`
+
+``` Swift
+let pointsKey = UserDefaults.DefaultKey<Int>("points", 23)
+
+var currentPoints = UserDefaults.standard[pointsKey] // 23
+UserDefaults.standard[pointsKey] += 2
+currentPoints = UserDefaults.standard[pointsKey] // 25
+```
+
 ### Store Codable Types
 
 Conform to `CustomDefaultsArchivable`:
