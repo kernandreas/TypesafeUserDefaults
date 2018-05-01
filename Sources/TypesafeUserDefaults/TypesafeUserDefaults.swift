@@ -102,7 +102,27 @@ extension UserDefaults {
         get { return value(forKey: key) }
     }
 
+    public subscript(_ key: Key<URL>) -> URL? {
+        set { set(newValue, forKey: key) }
+        get { return value(forKey: key) }
+    }
+
+    public subscript<T: CustomDefaultsArchivable>(_ key: Key<T>) -> T? {
+        set { set(newValue, forKey: key) }
+        get { return value(forKey: key) }
+    }
+
     public subscript<T>(_ key: DefaultKey<T>) -> T {
+        set { set(newValue, forKey: key) }
+        get { return value(forKey: key) }
+    }
+
+    public subscript(_ key: DefaultKey<URL>) -> URL {
+        set { set(newValue, forKey: key) }
+        get { return value(forKey: key) }
+    }
+
+    public subscript<T: CustomDefaultsArchivable>(_ key: DefaultKey<T>) -> T {
         set { set(newValue, forKey: key) }
         get { return value(forKey: key) }
     }
