@@ -11,8 +11,8 @@ TypesafeUserDefaults is a thin extension to UserDefaults that enables a type saf
 Define the keys:
 ``` Swift
 enum UserKeys {
-    static let name = DefaultsKey<String>("name")
-    static let date = DefaultsKey<Date>("date")
+    static let name = UserDefaults.Key<String>("name")
+    static let date = UserDefaults.Key<Date>("date")
 }
 ```
 
@@ -28,16 +28,16 @@ let date = UserDefaults.standard.value(forKey: UserKeys.date)
 Or use the convenient subscript:
 ``` Swift
 UserDefaults.standard[UserKeys.name] = "Max Mustermann"
-UserDefaults.standard[UserKeys.name] = Date()
+UserDefaults.standard[UserKeys.date] = Date()
 
 let name = UserDefaults.standard[UserKeys.name]
-let date = UserDefaults.standard[UserKeys.name]
+let date = UserDefaults.standard[UserKeys.date]
 ```
 
 The compiler will tell you if something is wrong:
 ``` Swift
 // UIImage is not archivable in UserDefaults
-let imageKey = DefaultsKey<UIImage>("image")
+let imageKey = UserDefaults.Key<UIImage>("image")
 
 // Assigning value of type Date to a key that defined the value to be String
 UserDefaults.standard[UserKeys.name] = Date()
@@ -45,6 +45,8 @@ UserDefaults.standard[UserKeys.name] = Date()
 // The return type does not match the type of the value
 let date: Date = UserDefaults.standard[UserKeys.name]
 ```
+
+### Provide Default Values
 
 ### Store Codable Types
 
@@ -58,10 +60,12 @@ struct User: CustomDefaultsArchivable {
 
 Define the key:
 ``` Swift
-let userKey = DefaultsKey<User>("user")
+let userKey = UserDefaults.Key<User>("user")
 ```
 
 Use the key:
 ``` Swift
+UserDefaults.standard[userKey] = User(name: "Max Mustermann", date: Date())
 let name = UserDefaults.standard[userKey]?.name
+let date = UserDefaults.standard[userKey]?.date
 ```
