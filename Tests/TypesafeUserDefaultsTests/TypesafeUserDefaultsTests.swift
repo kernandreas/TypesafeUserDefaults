@@ -167,7 +167,7 @@ final class TypesafeUserDefaultsTests: XCTestCase {
         XCTAssertEqual(defaults.value(forKey: customDefaultKey), custom)
     }
 
-    func testDefaulKeySubscripts() {
+    func testDefaultKeySubscripts() {
         XCTAssertEqual(defaults[arrayDefaultKey], defaultArray)
         XCTAssertEqual(defaults[boolDefaultKey], defaultBool)
         XCTAssertEqual(defaults[dataDefaultKey], defaultData)
@@ -206,6 +206,6 @@ final class TypesafeUserDefaultsTests: XCTestCase {
         ("testKeyAccessors", testKeyAccessors),
         ("testKeySubscripts", testKeySubscripts),
         ("testDefaultKeyAccessors", testDefaultKeyAccessors),
-        ("testDefaulKeySubscripts", testDefaulKeySubscripts)
+        ("testDefaultKeySubscripts", testDefaultKeySubscripts)
     ]
 }
