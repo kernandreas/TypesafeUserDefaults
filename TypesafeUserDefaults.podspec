@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name           = "TypesafeUserDefaults"
-  spec.version        = "0.0.1"
+  spec.version        = "1.0.0"
   spec.summary        = "A type safe extension to UserDefaults"
   spec.description    = "TypesafeUserDefaults is a thin extension to UserDefaults that enables a type safe use. As a bonus, types that conform to Codable can be stored in the UserDefaults."
   spec.license        = { :type => "MIT", :file => "LICENSE" }
