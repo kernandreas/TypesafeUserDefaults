@@ -79,3 +79,7 @@ UserDefaults.standard[userKey] = User(name: "Max Mustermann", date: Date())
 let name = UserDefaults.standard[userKey]?.name
 let date = UserDefaults.standard[userKey]?.date
 ```
+
+## Requirements
+
+`>= Swift 4.1`
